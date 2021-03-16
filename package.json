@@ -1,0 +1,178 @@
+{
+  "name": "nodecg-speedcontrol",
+  "version": "2.2.0",
+  "description": "NodeCG bundle to help facilitate the running of speedrunning marathons, including overlays.",
+  "homepage": "https://github.com/speedcontrol/nodecg-speedcontrol#readme",
+  "bugs": {
+    "url": "https://github.com/speedcontrol/nodecg-speedcontrol/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speedcontrol/nodecg-speedcontrol.git"
+  },
+  "license": "MIT",
+  "author": "zoton2",
+  "contributors": [
+    "Charleon",
+    "btrim",
+    "Zephyyrr",
+    "Planks",
+    "cma2819",
+    "yagamuu"
+  ],
+  "scripts": {
+    "autofix": "run-s autofix:*",
+    "autofix:browser": "eslint --fix --ext .ts,.vue src/dashboard",
+    "autofix:extension": "eslint --fix --ext .ts src/extension",
+    "autofix:types": "eslint --fix --ext .d.ts types",
+    "build": "run-s build:*",
+    "build:browser": "cross-env NODE_ENV=production webpack",
+    "build:extension": "tsc -b tsconfig.extension.json",
+    "clean": "trash node_modules/.cache && trash dashboard && trash extension",
+    "start": "node ../..",
+    "typeschemas": "node script/typeschemas.js",
+    "watch": "run-p watch:*",
+    "watch:browser": "webpack -w",
+    "watch:extension": "tsc -b tsconfig.extension.json -w"
+  },
+  "dependencies": {
+    "@types/needle": "^2.0.4",
+    "clone": "^2.1.2",
+    "iso8601-duration": "^1.2.0",
+    "livesplit-core": "^0.10.2",
+    "lodash": "^4.17.19",
+    "markdown-it": "^11.0.0",
+    "needle": "^2.5.0",
+    "p-iteration": "^1.1.8",
+    "parse-duration": "^0.4.4",
+    "remove-markdown": "^0.3.0",
+    "twitch-js": "^1.2.17",
+    "uuid": "^8.3.0",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "@intlify/vue-i18n-loader": "^1.0.0",
+    "@mdi/font": "^5.4.55",
+    "@types/clone": "^0.1.30",
+    "@types/lodash": "^4.14.158",
+    "@types/markdown-it": "10.0.1",
+    "@types/node": "^14.0.27",
+    "@types/remove-markdown": "^0.1.1",
+    "@types/uuid": "^8.0.0",
+    "@types/ws": "^7.2.6",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "@vue/component-compiler-utils": "^3.2.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.2.0",
+    "deepmerge": "^4.2.2",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "fibers": "^5.0.0",
+    "file-loader": "^6.0.0",
+    "fork-ts-checker-webpack-plugin": "^5.0.14",
+    "globby": "^11.0.1",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "html-webpack-plugin": "^4.3.0",
+    "json-schema-to-typescript": "^9.1.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "trash-cli": "^3.1.0",
+    "ts-loader": "^8.0.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.7",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.5",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-i18n": "^8.20.0",
+    "vue-loader": "^15.9.3",
+    "vue-property-decorator": "^9.0.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuedraggable": "^2.24.0",
+    "vuetify": "^2.3.7",
+    "vuetify-loader": "^1.6.0",
+    "vuex": "^3.5.1",
+    "vuex-class": "^0.3.2",
+    "vuex-class-state2way": "^1.0.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-livereload-plugin": "^2.3.0"
+  },
+  "nodecg": {
+    "compatibleRange": "^1.6.0",
+    "dashboardPanels": [
+      {
+        "name": "run-player",
+        "title": "Run Player",
+        "file": "run-player.html",
+        "width": 3
+      },
+      {
+        "name": "run-editor-dash",
+        "title": "Run Editor",
+        "file": "run-editor-dash.html",
+        "width": 3,
+        "workspace": "Run Modifications"
+      },
+      {
+        "name": "add-remove-runs-dash",
+        "title": "Add/Remove Runs",
+        "file": "add-remove-runs-dash.html",
+        "width": 2,
+        "workspace": "Run Modifications"
+      },
+      {
+        "name": "horaro-schedule-import",
+        "title": "Horaro Schedule Import",
+        "file": "horaro-schedule-import.html",
+        "width": 2,
+        "workspace": "Run Modifications"
+      },
+      {
+        "name": "oengus-schedule-import",
+        "title": "Oengus Schedule Import",
+        "file": "oengus-schedule-import.html",
+        "width": 2,
+        "workspace": "Run Modifications"
+      },
+      {
+        "name": "timer",
+        "title": "Timer",
+        "file": "timer.html",
+        "width": 3
+      },
+      {
+        "name": "twitch-control",
+        "title": "Twitch Control",
+        "file": "twitch-control.html",
+        "width": 3
+      },
+      {
+        "name": "player-layout",
+        "title": "Player Layout",
+        "file": "player-layout.html",
+        "width": 2,
+        "workspace": "Scene Editing"
+      },
+      {
+        "name": "run-modification-dialog",
+        "title": "",
+        "width": 6,
+        "file": "run-modification-dialog.html",
+        "dialog": true
+      },
+      {
+        "name": "alert-dialog",
+        "title": "",
+        "width": 3,
+        "file": "alert-dialog.html",
+        "dialog": true
+      }
+    ]
+  }
+}
