@@ -1,4 +1,4 @@
-# speedcontrol-dev-built-files
+# nodecg-speedcontrol (dev branch built files)
 Files built from the dev branch of [NodeCG Speedcontrol](https://github.com/speedcontrol/nodecg-speedcontrol), for those who don't know how to build the files themselves.
 
 ## Installation
